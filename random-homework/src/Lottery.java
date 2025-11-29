@@ -5,25 +5,21 @@ public class Lottery {
         Random random = new Random();
         ArrayList randomNumbers = new ArrayList();
 
-
-        for (int i = 0; i < 6; i++) {
+        // keep generating a number until the array randomNumbers is full (with 6 numbers).
+        while (randomNumbers.size() < 6) {
             // generating a random number between 1 and 49.
             int number = random.nextInt(49) + 1;
 
-            // if the array list randomNumbers contains the number generated then we generate another one instead.
-            if (randomNumbers.contains(number)) {
-                randomNumbers.add(random.nextInt(49) + 1);
-                // otherwise, add the number generated.
-            } else {
+            // if randomNumbers doesn't contain "number" then add it.
+            if (!randomNumbers.contains(number)) {
                 randomNumbers.add(number);
+
             }
-
-            // if the number is already in the array list then we generate another random number in place of it. Otherwise we add it to the ArrayList.
-            // If an array list doesn't contain the number, we add it to the list. Otherwise we generate anothger random number in place of it.
         }
-
+        // sort randomNumbers in ascending order
         randomNumbers.sort(null);
 
+        // print the sorted numbers by looping through all the random numbers.
         for (int i = 0; i < randomNumbers.size(); i++) {
             System.out.println(randomNumbers.get(i));
         }
